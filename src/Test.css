@@ -1,0 +1,21 @@
+.text {
+    color: blue;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding-top: 5rem;
+};
+.menu {
+color: black;
+text-align: center;
+}
+.show {
+    color:brown;
+    width: 70px;
+}
+._1{
+    color:blue
+}
+li{
+    list-style-type: none;
+}
