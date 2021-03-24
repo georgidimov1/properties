@@ -1,4 +1,5 @@
-fetch('https://baas.kinvey.com/appdata/kid_Hk7Ye1SEO/dating',{
+function Fetch (){
+  let data = fetch('https://baas.kinvey.com/appdata/kid_Hk7Ye1SEO/dating',{
     method: 'GET', 
     headers: {
         'Content-Type': 'application/json',
@@ -7,6 +8,8 @@ fetch('https://baas.kinvey.com/appdata/kid_Hk7Ye1SEO/dating',{
       }
 })
 .then(response => response.json())
-  .then(data => console.log(data));
+.then(data =>  {return data});
+return data;
+}
 
-export default fetch;
+export default Fetch

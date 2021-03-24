@@ -1,8 +1,9 @@
 const Demo = ()=> {
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(e.target);
+        console.log(e.target.username.value);
     }
+    
     return (
         <div>
             <h1>Demo Form</h1>
