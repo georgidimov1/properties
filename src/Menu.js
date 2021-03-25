@@ -1,6 +1,7 @@
 import '../src/Test.css'
 import Fetch from './services/Fetch'
 import Demo from './Demo'
+import CreatePerson from './CreatePerson'
 import {setState} from 'react'
 import {
     BrowserRouter as Router,
@@ -26,10 +27,12 @@ function MenuHome (){
                         <li><button className="show" type="button" onClick={onClickFetching}>Fetch</button></li>
                         <li><Link to="/">Home</Link> </li>
                         <li><Link to="/demo">Demo</Link> </li>
+                        <li><Link to="/CreatePerson">CreatePerson</Link></li>
                 </ul> 
             </div>
             <Switch>
                 <Route path="/demo" component={Demo}/>
+                <Route path="/CreatePerson" component={CreatePerson}/>
                 <Route path="/"/>
             </Switch>
     
