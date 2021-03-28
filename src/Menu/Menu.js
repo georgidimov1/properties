@@ -3,23 +3,20 @@ import {
     Switch,
     Route
  } from "react-router-dom";
- //import Demo from '../Demo'
- import CreatePerson from '../CreatePerson'
+ import CreatePerson from '../Create/CreatePerson'
  import MenuLinks from './Links'
  import Welcome from '../Welcome/Welcome'
+ import Login from "../Login/Login"
  function Menu(){
      return(
         <Router>
-       
-       
-    <MenuLinks/>
-    
-     <Switch>
-         <Route path="/register" component={CreatePerson}/>
-         <Route path="/CreatePerson" component={CreatePerson}/>
-         <Route path="/"component={Welcome}/>
-     </Switch>
-    </Router>
+           <MenuLinks/>
+            <Switch>
+                <Route path="/register" component={CreatePerson}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/"component={Welcome}/>
+            </Switch>
+        </Router>
      )
 
  }

@@ -1,12 +1,13 @@
 
 .menu{
-    /* position: fixed; */
+    position: fixed;
+    width: 100%;
     list-style-type: none;
     font-size: 24px;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #111;
     font-family: 'Caveat', cursive;
    }
   
@@ -15,6 +16,7 @@
   }
   
   li a {
+    width: 100%;
     display: block;
     color: white;
     text-align: center;
@@ -23,10 +25,13 @@
   }
   
   li a:hover {
-    background-color: #111;
+    background-color: #333;
     text-decoration:none;
     color: white;
   }
-  .logo li a{
+  a.logo{
+    background-color:#111;
     text-align: right;
-  }
+    color: white;
+   
+      }

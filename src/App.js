@@ -12,12 +12,12 @@ function App() {
     //    .then(data => setState({data}));
     // }
   return (
-    <body className= "bg-gra-01">
+    <div className= "bg-gra-01">
    <div className="App">
         <Menu/>
         <Footer/>
     </div>
-    </body>
+    </div>
  
   );
 }

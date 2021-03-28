@@ -9,10 +9,9 @@ function MenuLinks(){
         <ul className="menu">
                 <li><Link to="/">Home</Link> </li>
                 <li><Link to="/register">Register</Link> </li>
-                <li><Link to="/CreatePerson">Login</Link></li>
-                {/* <li><Link to="/all" className="show" type="button" onClick={onClickFetching}>Fetch</Link></li> */}
-                <li><Link to="/" className="logo">Logo</Link></li>
-       </ul> 
+                <li><Link to="/login">Login</Link></li>
+        </ul> 
+         
        </div>
     )
 }
