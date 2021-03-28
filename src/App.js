@@ -1,22 +1,24 @@
 import './App.css';
-import Test from './Test'
-import MenuHome from './Menu'
-import Contact from './ContactUs'
-//import Demo from './Demo'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer/Footer'
+import Menu from './Menu/Menu'
+// import Fetch from './services/Fetch'
+// import {setState} from 'react'
+
 
 function App() {
+    // function onClickFetching (){
+    //    Fetch()
+    //    .then(data => setState({data}));
+    // }
   return (
-    <div className="App">
-      <Contact/>
-      <MenuHome/>
-      <Test
- 
-        firstName='Georgi'
-        sirName= "Kanev"
-         familyName= "Dimov"
-      />
-
+    <body className= "bg-gra-01">
+   <div className="App">
+        <Menu/>
+        <Footer/>
     </div>
+    </body>
+ 
   );
 }
 
