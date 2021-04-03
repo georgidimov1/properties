@@ -1,7 +1,8 @@
 // import { useHistory } from "react-router-dom";
 function Login (){
     function onCreateSubmitHandler(e){
-
+        e.preventDefault();
+        console.log('yes')
     }
         
   return ( 
@@ -21,7 +22,7 @@ function Login (){
                                 </div>
                               
                                 <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green" type="submit">Submit</button>
+                                    <button className="btn btn--pill btn--green">Submit</button>
                                 </div>
                             </form>
                         </div>

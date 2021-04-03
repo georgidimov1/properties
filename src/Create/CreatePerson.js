@@ -88,7 +88,7 @@ function CreatePerson (){
                                     <input className="input--style-3" type="text" placeholder="Confirm Password*" name="rePassword" required/>
                                 </div>
                                 <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green" type="submit">Submit</button>
+                                    <button className="btn btn--pill btn--green">Submit</button>
                                 </div>
                             </form>
                         </div>
