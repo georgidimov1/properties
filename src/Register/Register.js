@@ -1,30 +1,30 @@
 import { useHistory } from "react-router-dom";
 import {post} from '../services/kinvey.js'
-function Login (){
+function Register (){
     let history = useHistory();
 
     function handleClick() {
-      history.push("/myDetails");
+      history.push("/login");
     }
     function onCreateSubmitHandler(e){
-        e.preventDefault();
-        function sessionStore(data) {
-            sessionStorage.setItem("authtoken", data._kmd.authtoken);
-            sessionStorage.setItem("username", data.username);
-            sessionStorage.setItem("userId", data._id);
-        }
-            const username = e.target.username.value;
-            const password = e.target.password.value;
-            post("user", "login", { username, password }, "Basic")
-              .then(data => {
-                sessionStore(data);
-                console.log(sessionStorage.authtoken);
-                console.log(sessionStorage.username);
-                handleClick();
-               })
-              .catch(console.error());
 
+        const username = e.target.username.value;
+        const password = e.target.password.value;
+        const rePassword = e.target.rePassword.value;
+
+        if(password!==rePassword){
+            return ( console.error(Error))
+       }
+       else{   
+           e.preventDefault();
+           post("user", "", { username, password }, "Basic")
+            .then(data => {
+              console.log(data);
+              handleClick();
+            })
+            .catch(console.error());
     }
+}
         
   return ( 
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
@@ -32,7 +32,7 @@ function Login (){
                      <div className="card card-3">
                         <div className="card-heading"></div>
                         <div className="card-body">
-                            <h2 className="title">Login</h2>
+                            <h2 className="title">Register</h2>
                             <form onSubmit={onCreateSubmitHandler}>
                                 <div className="input-group">
                                     <input className="input--style-3" type="text" placeholder="Username*" name="username" required/>
@@ -40,6 +40,9 @@ function Login (){
                       
                                 <div className="input-group">
                                     <input className="input--style-3" type="text" placeholder="Password*" name="password" required/>
+                                </div>
+                                <div className="input-group">
+                                    <input className="input--style-3" type="text" placeholder="Confirm Password*" name="rePassword" required/>
                                 </div>
                               
                                 <div className="p-t-10">
@@ -52,4 +55,4 @@ function Login (){
             </div>
 
     )}
- export default Login;
+ export default Register;
