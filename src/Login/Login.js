@@ -4,7 +4,7 @@ function Login (){
     let history = useHistory();
 
     function handleClick() {
-      history.push("/myDetails");
+      history.push("/user");
     }
     function onCreateSubmitHandler(e){
         e.preventDefault();

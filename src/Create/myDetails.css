@@ -232,6 +232,12 @@
   /* ==========================================================================
      #FORM
      ========================================================================== */
+  label {
+    color: black;
+  }
+  .radio{
+    padding-left: 1rem;
+  }
   input {
     outline: none;
     margin: 0;
@@ -267,7 +273,7 @@
   .input--style-3 {
     padding: 5px 0;
     font-size:24px;
-    color: #ccc;
+    color:black;
     background: transparent;
   }
   
@@ -386,8 +392,8 @@
      #TITLE
      ========================================================================== */
   .title {
-    font-size: 24px;
-    color: #fff;
+    font-size: 36px;
+    color: black;
     font-weight: 400;
     margin-bottom: 36px;
   }

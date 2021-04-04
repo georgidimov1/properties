@@ -9,7 +9,9 @@ import {
  import Header from './Header.js'
  import {post} from '../services/kinvey.js'
  import MyDetails from "../Create/MyDetails.js"
+ import Card from "../Card/Card.js"
  function Menu(){
+   let isAuth = sessionStorage.getItem("authtoken");
     return(
         <Router>
              <Header/>
@@ -21,7 +23,7 @@ import {
                 }}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
-                <Route path="/"component={Welcome}/>
+                <Route path="/"component={isAuth?Card:Welcome}/>
             </Switch>
         </Router>
      )

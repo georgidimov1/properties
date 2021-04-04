@@ -1,8 +1,9 @@
 import './myDetails.css';
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 //import ErrorHandler from "../ErrorHandler/ErrorHandler"
 import {post} from "../services/kinvey.js"
 import { useHistory } from "react-router-dom";
+import getZodiacSign from "../services/getZodiacsign"
 
 
 function MyDetails (){
@@ -12,58 +13,68 @@ function MyDetails (){
   function handleClick() {
     history.push("/");
   }
-    function onCreateSubmitHandler(e){
+  const [gender, setGender] = useState('');
+  function onChangeRadioButtonHandler(e){
+   setGender(e.target.value)
+      }
+  function onCreateSubmitHandler(e){
          e.preventDefault();
+         console.log(getZodiacSign(e.target.birthday.value));
             let data = {
                 "_filename": e.target.myImage.value,
                 "birthday": e.target.birthday.value,
-                "gender":  e.target.gender.value,
-                "email": e.target.email.value,
+                "gender": gender,
                 "phone": e.target.phone.value,
+                "zodiac": getZodiacSign(e.target.birthday.value)
             }
-            post(
-                "appdata",
-                "dating",
-                data,
-                "Kinvey"
-              )
-            .then(
-                (data)=> {
-                    if(data.status===201)
-                    {
+            post("appdata","dating", data, "Kinvey")
+            .then((data)=> {
+                        console.log(data)
                         handleClick()
-                        console.log(data.status)
+                        
                     }
-                })
+                )
             
-                                     }
+}
     
 
         useEffect(function () {
             document.title = `Please entry our details`;
         }, []);
+
+   
         
-        // const [value, onChange] = useState(new Date());
     return ( 
              <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
                 <div className="wrapper wrapper--w780">
                      <div className="card card-3">
                         <div className="card-heading"></div>
                         <div className="card-body">
-                            <h2 className="title">{username}/'s Registration Info</h2>
+                            <h2 className="title">{username}'s Registration Info</h2>
                             <form onSubmit={onCreateSubmitHandler}>
                                 <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Name" name="name"/>
+                                <label htmlFor="picture">Select a Picture:</label>
+                                <input className="input--style-3" id="picture" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
                                 </div>
                                 <div className="input-group">
-                                <input className="input--style-3" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
-                                </div>
-                                <div className="input-group">
-                                    <input className="input--style-3" type="datetime-local" name="birthday"/>
+                                    <input className="input--style-3" type="datetime-local" name="birthday" required/>
                                     <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
-                                <div className="input-group">
-                                    <div className="rs-select2 js-select-simple select--no-search">
+                                <div className="input-group" >
+                                <h2 className="title">Select a Gender:</h2>
+                                        <div className="radio">
+                                        <input className="input--style-3" type="radio" id="male" name="drone" value="Male" onChange={onChangeRadioButtonHandler} required/>
+                                        <label htmlFor="male">Male</label>
+                                        </div>
+                                        <div className="radio">
+                                        <input className="input--style-3" type="radio" id="female" name="drone" value="Female" onChange={onChangeRadioButtonHandler} required/>
+                                        <label htmlFor="female">Female</label>
+                                        </div>
+                                        <div className="radio">
+                                        <input className="input--style-3" type="radio" id="other" name="drone" value="Other" onChange={onChangeRadioButtonHandler} required/>
+                                        <label htmlFor="other">Other</label>
+                                        </div>
+                                    {/* <div className="rs-select2 js-select-simple select--no-search">
                                         <select name="gender">
                                             <option disabled >Gender</option>
                                             <option defaultValue="male">Male</option>
@@ -71,13 +82,13 @@ function MyDetails (){
                                             <option defaultValue="other">Other</option>
                                         </select>
                                         <div className="select-dropdown"></div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="input-group">
                                     <input className="input--style-3" type="text" placeholder="Phone" name="phone"/>
                                 </div>
                                 <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green">Submit</button>
+                                    <button className="btn btn--pill btn--green">Save</button>
                                 </div>
                             </form>
                         </div>
