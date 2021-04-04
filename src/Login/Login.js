@@ -1,28 +1,25 @@
 import { useHistory } from "react-router-dom";
-import {post} from '../services/kinvey.js'
+import services from "../services/services.js";
+import {useState} from 'react';
 function Login (){
+    const [isAuth, setAuth] = useState('');
     let history = useHistory();
-
     function handleClick() {
       history.push("/user");
     }
     function onCreateSubmitHandler(e){
         e.preventDefault();
-        function sessionStore(data) {
-            sessionStorage.setItem("authtoken", data._kmd.authtoken);
-            sessionStorage.setItem("username", data.username);
-            sessionStorage.setItem("userId", data._id);
-        }
-            const username = e.target.username.value;
-            const password = e.target.password.value;
-            post("user", "login", { username, password }, "Basic")
+        
+        const username = e.target.username.value;
+        const password = e.target.password.value;
+            services.userLogin(username, password)
               .then(data => {
-                sessionStore(data);
-                console.log(sessionStorage.authtoken);
-                console.log(sessionStorage.username);
+                setAuth(data._kmd.authtoken?"true":"false");
+                services.sessionStore(data);
                 handleClick();
                })
               .catch(console.error());
+              console.log(isAuth)
 
     }
         

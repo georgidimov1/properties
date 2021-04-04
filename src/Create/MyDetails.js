@@ -1,7 +1,6 @@
 import './myDetails.css';
 import React, { useEffect, useState} from 'react';
-//import ErrorHandler from "../ErrorHandler/ErrorHandler"
-import {post} from "../services/kinvey.js"
+import services from "../services/services.js"
 import { useHistory } from "react-router-dom";
 import getZodiacSign from "../services/getZodiacsign"
 
@@ -19,21 +18,20 @@ function MyDetails (){
       }
   function onCreateSubmitHandler(e){
          e.preventDefault();
-         console.log(getZodiacSign(e.target.birthday.value));
-            let data = {
+         let data = {
                 "_filename": e.target.myImage.value,
                 "birthday": e.target.birthday.value,
                 "gender": gender,
                 "phone": e.target.phone.value,
                 "zodiac": getZodiacSign(e.target.birthday.value)
             }
-            post("appdata","dating", data, "Kinvey")
+            services.postData(data)
             .then((data)=> {
-                        console.log(data)
-                        handleClick()
+                             handleClick()
                         
                     }
                 )
+            .catch(console.error())
             
 }
     

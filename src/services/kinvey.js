@@ -37,9 +37,6 @@ function serilizeData(x) {
 }
 function fetchData(kinveyModule, endpoint, headers) {
     const url = `${baseUrl}/${kinveyModule}/${appKey}/${endpoint}`;
-    console.log(url)
-    console.log(headers)
-    console.log(sessionStorage.getItem(`authtoken`))
     return fetch(url, headers)
         .then(handleError)
         .then(serilizeData)

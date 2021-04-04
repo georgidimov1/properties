@@ -3,17 +3,14 @@ import {
  } from "react-router-dom";
  import './Header.css'
 
-function Header(){
-    let isAuth = sessionStorage.getItem("authtoken");
-    let username = sessionStorage.getItem("username");
-
-        if(isAuth){
+function Header(props){
+        if(props.authData.isAuth){
 
             return (
                 <div>
                    <ul className="menu">
                         <li><Link to="/">Home</Link> </li>
-                        <li><Link to="/user">Hello, {username}</Link> </li>
+                        <li><Link to="/user">Hello, {props.authData.username}</Link> </li>
                         <li><Link to="/logout">Logout</Link></li>
                 </ul> 
                 </div>
