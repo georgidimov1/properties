@@ -13,7 +13,7 @@ function Login (){
               .then(data => {
                 services.sessionStore(data);
                 handleClick();
-               })
+                 })
               .catch(console.error());
       }
         
