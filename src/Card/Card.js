@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 function Card(props){
   const [likes, setCount] = useState(0);
-  function onPetButtonClickHander(){setCount(likes + 1)}
+  function onLikeButtonClickHander(){setCount(likes + 1)}
   
   console.log(props)
      return (
@@ -13,12 +13,12 @@ function Card(props){
            <div className="card card-3">
               <div className="card-heading"></div>
               <div className="card-body">
-              <h2 className="title">Name: {props._id}</h2>
-                  <h2 className="title">Name: {props.zodiac}</h2>
+              <h2 className="title">Name: {props.username}</h2>
+                  <h2 className="title">Zodiac sign: {props.zodiac}</h2>
                       
                       <div className="p-t-10">
                           <p>Likes: {likes}</p>
-                          <button className="btn btn--pill btn--green" onClick={onPetButtonClickHander}>Like</button>
+                          <button className="btn btn--pill btn--green" onClick={onLikeButtonClickHander}>Like</button>
                       </div>
              </div>
           </div>

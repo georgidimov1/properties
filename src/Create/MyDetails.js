@@ -23,7 +23,8 @@ function MyDetails (){
                 "birthday": e.target.birthday.value,
                 "gender": gender,
                 "phone": e.target.phone.value,
-                "zodiac": getZodiacSign(e.target.birthday.value)
+                "zodiac": getZodiacSign(e.target.birthday.value),
+                "username": username
             }
             services.postData(data)
             .then((data)=> {
