@@ -1,10 +1,13 @@
 import { useHistory } from "react-router-dom";
 import services from "../services/services.js";
+
 function Login (){
     let history = useHistory();
     function handleClick() {
-      history.push("/user");
+      history.push("/");
+    
     }
+    
     function onLoginSubmitHandler(e){
         e.preventDefault();
         const username = e.target.username.value;
@@ -13,9 +16,12 @@ function Login (){
               .then(data => {
                 services.sessionStore(data);
                 handleClick();
+                
                  })
+               
               .catch(console.error());
-      }
+        }
+
         
   return ( 
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">

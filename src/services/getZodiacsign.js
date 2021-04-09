@@ -10,7 +10,7 @@ function getZodiacSign(date) {
        case 1:
             return (day<days[month])?'Aquarius':'Pieces';
        case 2:
-            return (day<days[month])?'Pieces':'Aries';
+            return (day<days[month])?'Pisces':'Aries';
        case 3:
             return (day<days[month])?'Aries':'Taurus';
        case 4:

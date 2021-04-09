@@ -1,28 +1,42 @@
 import {
     Link
  } from "react-router-dom";
- import './Header.css'
+import './Header.css'
 import services from '../services/services'
-import {useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
+import {LoginContext} from '../contexts/LoginContext'
 
 function Header(props){
-    const [isStateAuth, setAuth] = useState(props.auth.isAuth);
+    console.log(props)
+    const authData = useContext(LoginContext)
+    const [isStateAuth, setAuth] = useState(null);
+      
     function onClickLogoutHandler(){
-        setAuth(false)
         services.userLogout()
         .then(()=>{
-           sessionStorage.clear();        
+           sessionStorage.clear();
+         })
+        .then(()=>{
+            setAuth(false) 
         })
         .catch(console.log(Error))
-     
     }
+    
+    useEffect(() => {
+        if (authData.token) {
+            return setAuth(true)
+        }
+
+   },[authData.token])
+
+    
         if(isStateAuth){
 
             return (
                 <div>
                    <ul className="menu">
                         <li><Link to="/">Home</Link> </li>
-                        <li><Link to="/user" >Hello, {props.auth.username}</Link> </li>
+                        <li><Link to="/user" >Hello, {authData.username}</Link> </li>
                         <li><Link to="/logout" onClick={onClickLogoutHandler}>Logout</Link></li>
                 </ul> 
                 </div>

@@ -1,31 +1,32 @@
 import './Cards.css'
 import Card from './Card'
-import {useEffect, useState} from 'react'
+import React, {
+  useEffect, 
+  useState
+} from 'react'
 import services from '../services/services'
 
-
-
-
 function Cards(){
-  const [data, setData] = useState();
-  function fetch (){
-    return services.getAll()
-    .then((res)=>res.json())
-    .then((data)=>{setData(data)})
-    .catch(Error);
-  }
-
-  useEffect(()=>{
-    fetch();
-  },[])
-  console.log(data)
+  const [count, setCount] = useState([]);
   
-  return(
-    
-    <div className="cards">
-          <Card />
-    </div>
+  useEffect(()=>{
+    services.getAll()
+    .then((res)=>{setCount(res)})
+    .catch(Error);
+  },[])
+
+return(
+  count.map(
+    (x)=>{
+      return(
+              <Card key={x._id} {...x} />
+     
+      )       
+    }
+  )
 )
+
+    
 }
 
-export default Cards;
+export default Cards; 
