@@ -18,7 +18,11 @@ function Card(props){
                       
                       <div className="p-t-10">
                           <p>Likes: {likes}</p>
+                          <div className="btn--grid">
                           <button className="btn btn--pill btn--green" onClick={onLikeButtonClickHander}>Like</button>
+                          <button className="btn btn--pill btn--green" onClick={onLikeButtonClickHander}>Details</button>
+                          </div>
+                          
                       </div>
              </div>
           </div>
