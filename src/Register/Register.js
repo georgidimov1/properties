@@ -39,10 +39,10 @@ function Register (){
                                 </div>
                       
                                 <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Password*" name="password" required/>
+                                    <input className="input--style-3" type="password" placeholder="Password*" name="password" required/>
                                 </div>
                                 <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Confirm Password*" name="rePassword" required/>
+                                    <input className="input--style-3" type="password" placeholder="Confirm Password*" name="rePassword" required/>
                                 </div>
                               
                                 <div className="p-t-10">

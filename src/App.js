@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import './Header/Header.css'
 import Register from './Register/Register.js'
-import Welcome from './Welcome/Welcome'
 import Login from "./Login/Login"
 import MyDetails from "./Create/MyDetails.js"
 import CardGrid from "./Card/CardGrid"
@@ -27,11 +26,11 @@ function App() {
              <Header {...authData}/>
             <Switch>
                 <Route path="/user/details/:id" render={props => <Details {...props} {...authData} />}/>
-                <Route path="/user" component={MyDetails}/>
+                <Route path="/user" render={()=><MyDetails/>}/>
                 <Route path="/logout" ><Redirect to='/'/></Route>
-                <Route path="/register" component={Register}/>
-                <Route path="/login" component={authData.token===null?Login:Welcome}/>
-                <Route path="/"component={authData.token!==null?CardGrid:Welcome}/>
+                <Route path="/register" render={()=><Register/>}/>
+                <Route path="/login" render={()=><Login/>}/>
+                <Route path="/" render={()=><CardGrid {...authData}/>}/>
             </Switch>
         </Router>
           <Footer/>

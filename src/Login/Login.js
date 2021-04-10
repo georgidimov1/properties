@@ -1,11 +1,12 @@
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
+import {useEffect} from 'react';
 import services from "../services/services.js";
 
 function Login (){
     let history = useHistory();
     function handleClick() {
       history.push("/");
-    
+      window.location.reload();
     }
     
     function onLoginSubmitHandler(e){
@@ -15,13 +16,16 @@ function Login (){
             services.userLogin(username, password)
               .then(data => {
                 services.sessionStore(data);
+                console.log(data);
                 handleClick();
                 
                  })
                
               .catch(console.error());
         }
-
+        useEffect(function () {
+            document.title = `Please entry our credetials`;
+        }, []);
         
   return ( 
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
@@ -36,7 +40,7 @@ function Login (){
                                 </div>
                       
                                 <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Password*" name="password" required/>
+                                    <input className="input--style-3" type="password" placeholder="Password*" name="password" required/>
                                 </div>
                               
                                 <div className="p-t-10">

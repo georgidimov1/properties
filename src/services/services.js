@@ -27,8 +27,7 @@ let services = {
         sessionStorage.setItem("authtoken", data._kmd.authtoken)
         sessionStorage.setItem("username", data.username)
         sessionStorage.setItem("userId", data._id)
-      
-    }
+   }
 }
 
     
