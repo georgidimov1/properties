@@ -16,6 +16,7 @@ import Login from "./Login/Login"
 import MyDetails from "./Create/MyDetails.js"
 import CardGrid from "./Card/CardGrid"
 import Header from './Header/Header'
+import Details from './Details/Details'
 function App() {
   let authData = {'token': sessionStorage.getItem("authtoken"), 'username' : sessionStorage.getItem("username")};
  
@@ -25,6 +26,7 @@ function App() {
          <Router>
              <Header {...authData}/>
             <Switch>
+                <Route path="/user/details/:id" render={props => <Details {...props} {...authData} />}/>
                 <Route path="/user" component={MyDetails}/>
                 <Route path="/logout" ><Redirect to='/'/></Route>
                 <Route path="/register" component={Register}/>

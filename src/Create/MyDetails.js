@@ -53,7 +53,7 @@ function MyDetails (){
                             <form onSubmit={onCreateSubmitHandler}>
                                 <div className="input-group">
                                 <label htmlFor="picture">Select a Picture:</label>
-                                <input className="input--style-3" id="picture" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
+                                <input className="input--style-3" id="picture" type="text" name="myImage" />
                                 </div>
                                 <div className="input-group">
                                     <input className="input--style-3" type="datetime-local" name="birthday" required/>
