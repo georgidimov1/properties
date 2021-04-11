@@ -21,7 +21,7 @@ function Login (){
                 
                  })
                
-              .catch(console.error('yes'));
+              .catch((e)=>{throw new Error(e)});
         }
         useEffect(function () {
             document.title = `Please entry our credetials`;

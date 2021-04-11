@@ -27,7 +27,7 @@ function Register (){
               console.log(data);
               handleClick();
             })
-            .catch(console.error());
+            .catch((e)=>{throw new Error(e)});
     }
 }
         

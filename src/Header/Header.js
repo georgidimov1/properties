@@ -23,7 +23,7 @@ function Header(props){
             setAuth(false)
             handleClick() 
         })
-        .catch(console.log(Error))
+        .catch((e)=>{throw new Error(e)})
     }
     
     useEffect(() => {

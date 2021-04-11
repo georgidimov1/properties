@@ -8,9 +8,12 @@ import services from '../services/services'
 function CardGrid (props){
     const [cardsAll, setCardsAll] = useState([]);
     useEffect(()=>{
-        services.getAll()
-        .then((res)=>{setCardsAll(res)})
-        .catch(Error);
+        if(props.token!==null){
+            services.getAll()
+            .then((res)=>{setCardsAll(res)})
+            .catch((e)=>{throw new Error(e)});
+        }
+
       },[])
         return ( <span>
 {props.token!==null?

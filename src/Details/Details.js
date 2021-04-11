@@ -18,6 +18,7 @@ services.getOne(props.match.params.id)
     {setData(res);
     setCount(res.likes?res.likes:0);}
     )
+.catch((e)=>{throw new Error(e)})
     },[props])
 let likesInitalValue = Number(data.likes);
 console.log(likesInitalValue)
@@ -27,7 +28,7 @@ console.log(likesInitalValue)
      setCount(currentLikes)
 services.postLikes(props.match.params.id,{...data, "likes":currentLikes})
 .then(data => console.log(data))
-.catch(Error)
+.catch((e)=>{throw new Error(e)})
     }
   
 return (

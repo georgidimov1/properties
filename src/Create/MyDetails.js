@@ -32,7 +32,7 @@ function MyDetails (){
                         
                     }
                 )
-            .catch(console.error())
+            .catch((e)=>{throw new Error(e)})
             
 }
     

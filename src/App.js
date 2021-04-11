@@ -15,6 +15,7 @@ import MyDetails from "./Create/MyDetails.js"
 import CardGrid from "./Card/CardGrid"
 import Header from './Header/Header'
 import Details from './Details/Details'
+import ErrorBoundary from './ErrorHandler/ErrorBoundary'
 function App() {
   let authData = {'token': sessionStorage.getItem("authtoken"), 'username' : sessionStorage.getItem("username")};
  
@@ -23,14 +24,16 @@ function App() {
         <div className="App bg-gra-01">
          <Router>
              <Header {...authData}/>
-            <Switch>
+             <ErrorBoundary>
+               <Switch>
                 <Route path="/user/details/:id" render={props => <Details {...props} {...authData} />}/>
                 <Route path="/user" render={()=><MyDetails/>}/>
                 <Route path="/logout" />
                 <Route path="/register" render={()=><Register/>}/>
                 <Route path="/login" render={()=><Login/>}/>
                 <Route path="/" render={()=><CardGrid {...authData}/>}/>
-            </Switch>
+             </Switch>
+            </ErrorBoundary>
         </Router>
           <Footer/>
         </div>
