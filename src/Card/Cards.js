@@ -1,29 +1,30 @@
 import './Cards.css'
 import Card from './Card'
 import React, {
-  useEffect, 
-  useState
+  useContext,
+  //useEffect, 
+  //useState
 } from 'react'
-import services from '../services/services'
+import {DataContext} from '../contexts/DataContext'
+
 
 function Cards(){
-  const [count, setCount] = useState([]);
-  
-  useEffect(()=>{
-    services.getAll()
-    .then((res)=>{setCount(res)})
-    .catch(Error);
-  },[])
+  const cardsAll = useContext(DataContext);
 
 return(
-  count.map(
+  
+  cardsAll.map(
     (x)=>{
       return(
-              <Card key={x._id} {...x} />
+       
+            <Card key={x._id} {...x} />
+        
+              
      
       )       
     }
   )
+
 )
 
     

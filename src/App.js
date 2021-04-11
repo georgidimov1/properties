@@ -6,8 +6,7 @@ import {LoginContext} from './contexts/LoginContext'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom";
 import './Header/Header.css'
 import Register from './Register/Register.js'
@@ -27,7 +26,7 @@ function App() {
             <Switch>
                 <Route path="/user/details/:id" render={props => <Details {...props} {...authData} />}/>
                 <Route path="/user" render={()=><MyDetails/>}/>
-                <Route path="/logout" ><Redirect to='/'/></Route>
+                <Route path="/logout" />
                 <Route path="/register" render={()=><Register/>}/>
                 <Route path="/login" render={()=><Login/>}/>
                 <Route path="/" render={()=><CardGrid {...authData}/>}/>

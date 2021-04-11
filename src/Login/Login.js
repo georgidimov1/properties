@@ -6,7 +6,7 @@ function Login (){
     let history = useHistory();
     function handleClick() {
       history.push("/");
-      window.location.reload();
+     window.location.reload();
     }
     
     function onLoginSubmitHandler(e){

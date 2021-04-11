@@ -1,15 +1,17 @@
-import {get,post} from "../services/kinvey.js"
+import {get,post, put} from "../services/kinvey.js"
 
+let kinveyModule = "appdata";
+let type = "Kinvey"
 
 let services = {
     postData (data){
-        return post("appdata","dating", data, "Kinvey")
+        return post(kinveyModule,"dating", data, type)
     },
     getAll(){
-        return get("appdata","dating", "Kinvey")
+        return get(kinveyModule,"dating", type)
     },
     getOne(_id){
-        return get("appdata",`dating/${_id}`, "Kinvey")
+        return get(kinveyModule,`dating/${_id}`, type)
     },
     userLogin(username, password){
         return post("user", "login", { username, password }, "Basic")
@@ -27,6 +29,9 @@ let services = {
         sessionStorage.setItem("authtoken", data._kmd.authtoken)
         sessionStorage.setItem("username", data.username)
         sessionStorage.setItem("userId", data._id)
+   },
+   postLikes (_id, data){
+    return put(kinveyModule,`dating/${_id}`, data, type)
    }
 }
 

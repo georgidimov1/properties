@@ -1,26 +1,33 @@
 import '../Card/Cards.css'
 import {
-    useState, 
-    useEffect
+        useState,
+        useEffect
 } from 'react'
 import services from '../services/services'
 
+
 function Details(props){
-const [data, setData] = useState(0);
-  useEffect(()=>{
-      services.getOne(props.match.params.id)
-        .then(dataOne =>setData(dataOne))
-           
-  },[props])
-  
-  let arrayLikes=[];
-  const [likes, setCount] = useState(arrayLikes);
+    const [data, setData] = useState(0);
+    const [likes, setCount] = useState();
+
+    
+   
+    useEffect(()=>{
+services.getOne(props.match.params.id)
+.then(res => 
+    {setData(res);
+    setCount(res.likes?res.likes:0);}
+    )
+    },[props])
+let likesInitalValue = Number(data.likes);
+console.log(likesInitalValue)
+
   function onLikeButtonClickHander(){
-    setCount(likes+1)
-    services.postData({...props, "likes":likes})
-    .then(console.log('sucess'))
-console.log(data._acl.creator)
-console.log(sessionStorage.getItem("userId"))
+      let currentLikes = likes+1; 
+     setCount(currentLikes)
+services.postLikes(props.match.params.id,{...data, "likes":currentLikes})
+.then(data => console.log(data))
+.catch(Error)
     }
   
 return (
@@ -35,7 +42,7 @@ return (
           
                 {sessionStorage.getItem("userId")?
                 <div>
-                <p>Likes: {likes.length}</p>
+                <p>Likes: {likes}</p>
                 <button className="btn btn--pill btn--green" onClick={onLikeButtonClickHander}>Like</button>
                 </div>
                 :<div></div>
