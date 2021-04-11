@@ -1,7 +1,9 @@
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
+import {useState} from 'react';
 import {post} from '../services/kinvey.js'
 function Register (){
     let history = useHistory();
+    let[error, setError]=useState(false)
 
     function handleClick() {
       history.push("/login");
@@ -13,7 +15,10 @@ function Register (){
         const rePassword = e.target.rePassword.value;
 
         if(password!==rePassword){
-            return ( console.error(Error))
+            return ( 
+                       setError(true)
+                   
+                    )
        }
        else{   
            e.preventDefault();
@@ -44,7 +49,7 @@ function Register (){
                                 <div className="input-group">
                                     <input className="input--style-3" type="password" placeholder="Confirm Password*" name="rePassword" required/>
                                 </div>
-                              
+                                <div style={{ color: 'red' }}>{error?'Passwords do not math':''}</div>
                                 <div className="p-t-10">
                                     <button className="btn btn--pill btn--green">Submit</button>
                                 </div>
@@ -52,6 +57,7 @@ function Register (){
                         </div>
                     </div>
                 </div>
+                
             </div>
 
     )}
