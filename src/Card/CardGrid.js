@@ -15,7 +15,7 @@ function CardGrid (props){
         }
 
       },[])
-        return ( <span>
+        return ( <span className='background'>
 {props.token!==null?
  <div className="cards">
      <DataContext.Provider value={cardsAll}>

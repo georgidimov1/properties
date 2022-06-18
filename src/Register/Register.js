@@ -15,14 +15,14 @@ function Register (){
         const rePassword = e.target.rePassword.value;
 
         if(password!==rePassword){
-            return ( 
+            e.preventDefault();
+            return (
                        setError(true)
                    
                     )
        }
        else{   
-           e.preventDefault();
-           post("user", "", { username, password }, "Basic")
+            post("user", "", { username, password }, "Basic")
             .then(data => {
               console.log(data);
               handleClick();
@@ -32,33 +32,24 @@ function Register (){
 }
         
   return ( 
-            <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-                <div className="wrapper wrapper--w780">
-                     <div className="card card-3">
-                        <div className="card-heading"></div>
-                        <div className="card-body">
+                         <div className="body">
                             <h2 className="title">Register</h2>
                             <form onSubmit={onCreateSubmitHandler}>
-                                <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Username*" name="username" required/>
+                                <div className='password'>
+                                    <input className='input' type="text" placeholder="Username*" name="username" required/>
                                 </div>
                       
-                                <div className="input-group">
-                                    <input className="input--style-3" type="password" placeholder="Password*" name="password" required/>
+                                <div className='password'>
+                                    <input className='input' type="password" placeholder="Password*" name="password" required/>
                                 </div>
-                                <div className="input-group">
-                                    <input className="input--style-3" type="password" placeholder="Confirm Password*" name="rePassword" required/>
+                                <div className='password'>
+                                    <input className='input' type="password" placeholder="Confirm Password*" name="rePassword" required/>
                                 </div>
-                                <div style={{ color: 'red' }}>{error?'Passwords do not math':''}</div>
+                                <div className='err'>{error?'Passwords do not match':''}</div>
                                 <div className="p-t-10">
                                     <button className="btn btn--pill btn--green">Submit</button>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-                
-            </div>
-
-    )}
+       )}
  export default Register;

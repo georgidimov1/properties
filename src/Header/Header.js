@@ -35,24 +35,25 @@ function Header(props){
    },[props.token, isStateAuth])
    
      return (
+    <div className="logo">
+    <div>
+    <img src="homeregular_106344.png" alt="home" width="50" height="50" />
+    </div>
     <div>
      {isStateAuth===true?
-             <div>
-                <ul className="menu">
-                     <li><Link to="/">Home</Link> </li>
-                     <li><Link to="/user" >Hello, {props.username}</Link> </li>
-                     <li><Link to="/logout" onClick={onClickLogoutHandler}>Logout</Link></li>
-             </ul> 
-             </div>:
-             <div>
-                <ul className="menu">
-                     <li><Link to="/">Home</Link> </li>
-                     <li><Link to="/register">Register</Link> </li>
-                     <li><Link to="/login" >Login</Link></li>
-               </ul> 
-             </div>
+             <nav>
+                     <p className="nav"><Link to="/">Home</Link></p>
+                     <p className="nav"><Link to="/user" >Hello, {props.username}</Link> </p>
+                     <p className="nav" align="right"><Link to="/logout" onClick={onClickLogoutHandler}>Logout</Link></p>
+             </nav>:
+             <nav>
+                     <p className="nav"><Link to="/">Home</Link> </p>
+                     <p className="nav"><Link to="/register">Register</Link> </p>
+                     <p className="nav"><Link to="/login" >Login</Link></p>
+             </nav>
      
      }
+     </div>
      </div>
 )
    

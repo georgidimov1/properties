@@ -1,3 +1,4 @@
+import './Login.css'
 import { useHistory} from "react-router-dom";
 import {useEffect} from 'react';
 import services from "../services/services.js";
@@ -28,29 +29,22 @@ function Login (){
         }, []);
         
   return ( 
-            <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-                <div className="wrapper wrapper--w780">
-                     <div className="card card-3">
-                        <div className="card-heading"></div>
-                        <div className="card-body">
+                         <div className="body">
                             <h2 className="title">Login</h2>
                             <form onSubmit={onLoginSubmitHandler}>
-                                <div className="input-group">
-                                    <input className="input--style-3" type="text" placeholder="Username*" name="username" required/>
+                                <div className='password'>
+                                    <input className='input'  type="text" placeholder="Username*" name="username" required/>
                                 </div>
                       
-                                <div className="input-group">
-                                    <input className="input--style-3" type="password" placeholder="Password*" name="password" required/>
+                                <div className='password'>
+                                    <input className='input' type="password" placeholder="Password*" name="password" required/>
                                 </div>
                               
-                                <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green">Submit</button>
-                                </div>
+                                <button className="btn">Submit</button>
+                                
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
+
 
     )}
  export default Login;
