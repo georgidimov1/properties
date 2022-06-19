@@ -35,9 +35,14 @@ function Header(props){
    },[props.token, isStateAuth])
    
      return (
-    <div className="logo">
+    <div className="header">
     <div>
-    <img src="homeregular_106344.png" alt="home" width="50" height="50" />
+        <p className="logo">
+            <a href="/">
+                <img src="homeregular_106344.png" alt="home" width="50" height="50" />
+            </a>
+            <h1>Bulgarian Properties</h1>
+        </p>
     </div>
     <div>
      {isStateAuth===true?

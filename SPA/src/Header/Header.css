@@ -1,5 +1,5 @@
 nav {
-	margin: 27px auto 0;
+	margin: 10px auto 0;
 	position: relative;
 	width: 100%;
 	height: 50px;
@@ -15,14 +15,13 @@ nav {
 nav p.nav {
 	line-height: 50px;
 	height: 100%;
-	font-size: 15px;
+	font-size: 18px;
 	display: grid;
 	position: relative;
 	z-index: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
-	color: white;
 	cursor: pointer;
 }
 nav .animation {
@@ -77,11 +76,27 @@ nav .start-contact, p.nav:nth-child(5):hover~.animation {
 }
 p.nav a:hover {
 	text-decoration: none;
+	color: rgb(93, 133, 254);
 }
-p.nav a:focus {
-	font-weight: bold;
-	font-size: 24px;
+p.logo {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 120px 120px 120px;
+	align-items: start;
+	justify-items: stretch;
+  	margin-bottom: 0px;
 }
-.logo {
-	background-color: aliceblue;
+.logo h1 {
+	text-overflow: ellipsis; 
+	white-space: nowrap;
+	text-transform: uppercase;
+	font-size: 40px;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.header {
+	background-color: #fcfdfb;
+	margin-top: 15px;
+}
+.nav a {
+	color: rgb(242, 230, 230);
 }

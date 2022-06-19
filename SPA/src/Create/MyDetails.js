@@ -44,11 +44,7 @@ function MyDetails (){
    
         
     return ( 
-             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-                <div className="wrapper wrapper--w780">
-                     <div className="card card-3">
-                        <div className="card-heading"></div>
-                        <div className="card-body">
+             <div className="body">
                             <h2 className="title">{username}'s Registration Info</h2>
                             <form onSubmit={onCreateSubmitHandler}>
                                 <div className="input-group">
@@ -91,9 +87,5 @@ function MyDetails (){
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-    )}
+     )}
  export default MyDetails;

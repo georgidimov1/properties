@@ -21,7 +21,11 @@ function App() {
  
   return (
       <LoginContext.Provider value={authData}>
-        <div className="App bg-gra-01">
+        <div className="App bg-gra-01 background-img"
+        style={{ 
+          backgroundImage: 'url(/home-background.jpg)'
+        }}
+        >
          <Router>
              <Header {...authData}/>
              <ErrorBoundary>
