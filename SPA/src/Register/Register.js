@@ -1,6 +1,6 @@
 import { useHistory} from "react-router-dom";
 import {useState} from 'react';
-import {post} from '../services/kinvey.js'
+import services from "../services/services.js";
 function Register (){
     let history = useHistory();
     let[error, setError]=useState(false)
@@ -9,27 +9,22 @@ function Register (){
       history.push("/login");
     }
     function onCreateSubmitHandler(e){
-
+        e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
         const rePassword = e.target.rePassword.value;
-
+        
         if(password!==rePassword){
-            e.preventDefault();
-            return (
-                       setError(true)
-                   
-                    )
-       }
-       else{   
-            post("user", "", { username, password }, "Basic")
-            .then(data => {
-              console.log(data);
-              handleClick();
+             return (setError(true))
+        }
+       else
+       {
+            services.userRegister(username, password)
+            .then((d)=>{console.log(d.json()) 
+                handleClick();
             })
-            .catch((e)=>{throw new Error(e)});
-    }
-}
+            .catch((e)=>{throw new Error(e)});}
+        }
         
   return ( 
                          <div className="body">
@@ -47,7 +42,7 @@ function Register (){
                                 </div>
                                 <div className='err'>{error?'Passwords do not match':''}</div>
                                 <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green">Submit</button>
+                                    <button className="btn">Submit</button>
                                 </div>
                             </form>
                         </div>

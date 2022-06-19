@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const propertySchema = new Schema({
+    image:{type: String, },
     name: {type: String, required: true, unique: true},
     city: {type: String, required: true},
-    image:{type: String, },
     rooms: { type: Number, min: 1, max: 100 }, 
     users: [String],
     owner: {type: String, required: true}

@@ -11,7 +11,7 @@ import {
 import './Header/Header.css'
 import Register from './Register/Register.js'
 import Login from "./Login/Login"
-import MyDetails from "./Create/MyDetails.js"
+import MyDetails from "./UserDetails/MyDetails.js"
 import CardGrid from "./Card/CardGrid"
 import Header from './Header/Header'
 import Details from './Details/Details'

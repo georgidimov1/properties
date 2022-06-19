@@ -1,38 +1,38 @@
-import {get,post, put} from "../services/kinvey.js"
-
-let kinveyModule = "appdata";
-let type = "Kinvey"
+import {get,post} from "./restService.js"
 
 let services = {
     postData (data){
-        return post(kinveyModule,"dating", data, type)
+        return post("dating", data)
     },
     getAll(){
-        return get(kinveyModule,"dating", type)
+        return get("dating")
     },
     getOne(_id){
-        return get(kinveyModule,`dating/${_id}`, type)
+        return get(`dating/${_id}`)
     },
     userLogin(username, password){
-        return post("user", "login", { username, password }, "Basic")
+        return post({ username, password })
     },
-    userLogout(){
-        return fetch("https://baas.kinvey.com/user/kid_Hk7Ye1SEO/_logout", 
-            {method : 'POST',
-            headers: {
-                'Authorization': `Kinvey ${sessionStorage.getItem(`authtoken`)}`,
-                'X-Kinvey-API-Version': '1'
-            }})    
+    userRegister(username, password){
+        return post("auth/register", { username, password });
+    },
+    // userLogout(){
+    //     return fetch("https://baas.kinvey.com/user/kid_Hk7Ye1SEO/_logout", 
+    //         {method : 'POST',
+    //         headers: {
+    //             'Authorization': `Kinvey ${sessionStorage.getItem(`authtoken`)}`,
+    //             'X-Kinvey-API-Version': '1'
+    //         }})    
       
-    },
+    // },
     sessionStore(data) {
         sessionStorage.setItem("authtoken", data._kmd.authtoken)
         sessionStorage.setItem("username", data.username)
         sessionStorage.setItem("userId", data._id)
-   },
-   postLikes (_id, data){
-    return put(kinveyModule,`dating/${_id}`, data, type)
    }
+//    postLikes (_id, data){
+//     return put(kinveyModule,`dating/${_id}`, data, type)
+//    }
 }
 
     
