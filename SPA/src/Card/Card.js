@@ -1,8 +1,7 @@
 import './Cards.css'
 import {Link} from 'react-router-dom'
-//import {useContext} from 'react'
-//import {useState} from 'react'
-//import services from '../services/services'
+import React, {useContext, useState} from 'react'
+import services from '../services/services'
 
 function Card(props){
 
@@ -22,6 +21,7 @@ function Card(props){
         </div>
     </div>
  
-      )}
+      )
+}
 
 export default Card;
