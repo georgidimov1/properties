@@ -4,10 +4,8 @@ import services from "../services/services.js";
 function Register (){
     let history = useHistory();
     let[error, setError]=useState(false)
+    let[errorUser, setErrorUser]=useState(false)
 
-    function handleClick() {
-      history.push("/login");
-    }
     function onCreateSubmitHandler(e){
         e.preventDefault();
         const username = e.target.username.value;
@@ -20,11 +18,16 @@ function Register (){
        else
        {
             services.userRegister(username, password)
-            .then((d)=>{console.log(d.json()) 
-                handleClick();
+            .then(()=>{console.log("1")})
+            .then(()=> {
+                history.push("/login");
             })
-            .catch((e)=>{throw new Error(e)});}
-        }
+            .catch((error) => { 
+               if(error){return (setErrorUser(true))}
+            }
+                )
+       }
+    }
         
   return ( 
                          <div className="body">
@@ -33,7 +36,7 @@ function Register (){
                                 <div className='password'>
                                     <input className='input' type="text" placeholder="Username*" name="username" required/>
                                 </div>
-                      
+                                <div className='err'>{errorUser?'Username already exists':''}</div>
                                 <div className='password'>
                                     <input className='input' type="password" placeholder="Password*" name="password" required/>
                                 </div>

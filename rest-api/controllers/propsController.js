@@ -6,5 +6,6 @@ router.post('/property', (req, res) => {
    let property = new Property(req.body)
    property.save()
    .then(property => console.log(property._id))
+   .catch((e)=>{throw new Error(e)})
 });
 module.exports = router; 
