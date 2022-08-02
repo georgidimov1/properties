@@ -1,5 +1,7 @@
 import './myDetails.css';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect
+    //, useState
+    } from 'react';
 import services from "../services/services.js"
 import { useHistory } from "react-router-dom";
 import getZodiacSign from "../services/getZodiacsign"

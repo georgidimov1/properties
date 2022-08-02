@@ -1,7 +1,9 @@
 import './Cards.css'
 import {Link} from 'react-router-dom'
-import React, {useContext, useState} from 'react'
-import services from '../services/services'
+import React
+//, {useContext, useState} 
+from 'react'
+//import services from '../services/services'
 
 function Card(props){
 
